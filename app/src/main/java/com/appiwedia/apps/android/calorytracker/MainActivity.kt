@@ -13,8 +13,10 @@ import androidx.navigation.compose.rememberNavController
 import com.appiwedia.apps.android.calorytracker.navigation.navigate
 import com.appiwedia.apps.android.calorytracker.ui.theme.CaloryTrackerTheme
 import com.appiwedia.apps.android.core.navigation.Route
+import com.appiwedia.apps.android.onboarding_presentation.activity.ActivityScreen
 import com.appiwedia.apps.android.onboarding_presentation.age.AgeScreen
 import com.appiwedia.apps.android.onboarding_presentation.gender.GenderScreen
+import com.appiwedia.apps.android.onboarding_presentation.goal.GoalScreen
 import com.appiwedia.apps.android.onboarding_presentation.height.HeightScreen
 import com.appiwedia.apps.android.onboarding_presentation.weight.WeightScreen
 import com.appiwedia.apps.android.onboarding_presentation.welcome.WelcomeScreen
@@ -63,16 +65,18 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.NUTRIENT_GOAL) {
-
+                           
                         }
                         composable(Route.ACTIVITY) {
-
+                            ActivityScreen(
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.TRACKER_OVERVIEW) {
 
                         }
                         composable(Route.GOAL) {
-
+                            GoalScreen(onNavigate = navController::navigate)
                         }
                         composable(Route.SEARCH) {
 
