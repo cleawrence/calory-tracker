@@ -1,4 +1,4 @@
-package com.appiwedia.apps.android.core.domain
+package com.appiwedia.apps.android.core.data.preferences
 
 import android.content.SharedPreferences
 import com.appiwedia.apps.android.core.domain.models.ActivityLevel
@@ -9,7 +9,7 @@ import com.appiwedia.apps.android.core.domain.preferences.Preferences
 
 class DefaultPreferences(
     private val sharedPref: SharedPreferences
-): Preferences {
+) : Preferences {
     override fun saveGender(gender: Gender) {
         sharedPref.edit()
             .putString(Preferences.KEY_GENDER, gender.name)
@@ -86,5 +86,15 @@ class DefaultPreferences(
             activityLevel = ActivityLevel.fromString(activityLevelString ?: "medium"),
             goalType = GoalType.fromString(goalType ?: "keep_weight")
         )
+    }
+
+    override fun saveShouldShowOnboarding(shouldShow: Boolean) {
+        sharedPref.edit()
+            .putBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, shouldShow)
+            .apply()
+    }
+
+    override fun loadShouldOnboarding(): Boolean {
+        return sharedPref.getBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, true)
     }
 }
