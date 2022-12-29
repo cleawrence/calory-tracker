@@ -31,7 +31,7 @@ class TrackerOverviewModel @Inject constructor(
     val uiEvent = _uiEvent.receiveAsFlow()
 
     private var getFoodsForDateJob: Job? = null
-    
+
     init {
         preferences.saveShouldShowOnboarding(false)
     }
