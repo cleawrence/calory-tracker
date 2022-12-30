@@ -18,6 +18,7 @@ import com.appiwedia.apps.android.core_ui.CarbColor
 import com.appiwedia.apps.android.core_ui.FatColor
 import com.appiwedia.apps.android.core_ui.LocalSpacing
 import com.appiwedia.apps.android.core_ui.ProteinColor
+import com.appiwedia.apps.android.tracker_presentation.components.UnitDisplay
 import com.appiwedia.apps.android.tracker_presentation.tracker_overview.TrackerOverviewState
 
 @Composable

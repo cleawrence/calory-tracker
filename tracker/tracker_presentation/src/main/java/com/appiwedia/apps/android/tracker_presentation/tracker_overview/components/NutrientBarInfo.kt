@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.appiwedia.apps.android.core.R
+import com.appiwedia.apps.android.tracker_presentation.components.UnitDisplay
 
 @Composable
 fun NutrientBarInfo(
