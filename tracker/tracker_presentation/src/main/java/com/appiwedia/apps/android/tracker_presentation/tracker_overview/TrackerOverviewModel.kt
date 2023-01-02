@@ -96,7 +96,7 @@ class TrackerOverviewModel @Inject constructor(
                     caloriesGoal = nutrientsResult.caloriesGoal,
                     carbsGoal = nutrientsResult.carbsGoal,
                     fatGoal = nutrientsResult.fatGoal,
-                    trackedFood = foods,
+                    trackedFoods = foods,
                     meals = state.meals.map {
                         val nutrientsForMeal =
                             nutrientsResult.mealNutrients[it.mealType]
