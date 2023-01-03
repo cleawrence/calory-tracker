@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -14,6 +15,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.appiwedia.apps.android.calorytracker.navigation.navigate
 import com.appiwedia.apps.android.calorytracker.ui.theme.CaloryTrackerTheme
+import com.appiwedia.apps.android.core.domain.preferences.Preferences
 import com.appiwedia.apps.android.core.navigation.Route
 import com.appiwedia.apps.android.onboarding_presentation.activity.ActivityScreen
 import com.appiwedia.apps.android.onboarding_presentation.age.AgeScreen
@@ -26,11 +28,18 @@ import com.appiwedia.apps.android.onboarding_presentation.welcome.WelcomeScreen
 import com.appiwedia.apps.android.tracker_presentation.search.SearchScreen
 import com.appiwedia.apps.android.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
+@OptIn(ExperimentalComposeUiApi::class)
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var preferences: Preferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val shouldShowOnboarding = preferences.loadShouldOnboarding()
         setContent {
             CaloryTrackerTheme {
                 val navController = rememberNavController()
@@ -41,7 +50,7 @@ class MainActivity : ComponentActivity() {
                 ) { paddingValues ->
                     NavHost(
                         navController = navController,
-                        startDestination = Route.WELCOME
+                        startDestination = if (shouldShowOnboarding) Route.WELCOME else Route.TRACKER_OVERVIEW
                     ) {
                         composable(Route.WELCOME) {
                             WelcomeScreen(onNavigate = navController::navigate)
