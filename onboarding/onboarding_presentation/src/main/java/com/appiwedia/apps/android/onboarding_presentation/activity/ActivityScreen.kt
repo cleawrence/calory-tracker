@@ -11,7 +11,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.appiwedia.apps.android.core.domain.models.Gender
 import com.appiwedia.apps.android.core.util.UiEvent
 import com.appiwedia.apps.android.core_ui.LocalSpacing
 import com.appiwedia.apps.android.core.R
@@ -21,7 +20,7 @@ import com.appiwedia.apps.android.onboarding_presentation.components.SelectableB
 
 @Composable
 fun ActivityScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: ActivityViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
@@ -29,7 +28,7 @@ fun ActivityScreen(
     LaunchedEffect(key1 = true){
         viewModel.uiEvent.collect { event ->
             when(event) {
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Success -> onNextClick()
                 else -> Unit
             }
         }

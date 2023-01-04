@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.appiwedia.apps.android.core.domain.preferences.Preferences
 import com.appiwedia.apps.android.core.domain.use_case.FilterOutDigits
-import com.appiwedia.apps.android.core.navigation.Route
 import com.appiwedia.apps.android.core.util.UiEvent
 import com.appiwedia.apps.android.onboarding_domain.use_case.ValidateNutrients
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -52,7 +51,7 @@ class NutrientGoalViewModel @Inject constructor(
                         preferences.saveProteinRatio(result.proteinRatio)
                         preferences.saveFatRatio(result.fatRatio)
                         viewModelScope.launch {
-                            _uiEvent.send(UiEvent.Navigate(Route.TRACKER_OVERVIEW))
+                            _uiEvent.send(UiEvent.Success)
                         }
                     }
                     is ValidateNutrients.Result.Error -> {

@@ -6,7 +6,8 @@ import com.appiwedia.apps.android.tracker_data.local.entity.TrackedFoodEntity
 
 @Database(
     entities = [TrackedFoodEntity::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class TrackerDataBase: RoomDatabase() {
      abstract val dao: TrackerDao
