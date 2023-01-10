@@ -7,7 +7,7 @@ A calories tracker app
 * Mutli Module Architecture
 * Clean Architecture
 * Pattern MVVM  for Presentation
-* Rettofit 2 + Moshi
+* Retrofit 2 + Moshi
 * Coil for Compose - image loader 
 * Room
 * Moving gradle groovy to gradle dsl Kotlin
