@@ -6,7 +6,7 @@ A calories tracker app
 * Dagger Hilt for DI
 * Mutli Module Architecture
 * Clean Architecture
-* MVVM Presentation
+* Pattern MVVM  for Presentation
 * Rettofit 2 + Moshi
 * Coil for Compose - image loader 
 * Room
