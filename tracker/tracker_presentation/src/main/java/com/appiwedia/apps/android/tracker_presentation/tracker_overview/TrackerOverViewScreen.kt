@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.appiwedia.apps.android.core.R
 import com.appiwedia.apps.android.core_ui.LocalSpacing
@@ -15,7 +16,8 @@ import com.appiwedia.apps.android.tracker_presentation.tracker_overview.componen
 @Composable
 fun TrackerOverviewScreen(
     onNavigateToSearch: (String, Int, Int, Int) -> Unit,
-    viewModel: TrackerOverviewModel = hiltViewModel()
+    viewModel: TrackerOverviewModel = hiltViewModel(),
+    paddingValues: PaddingValues = PaddingValues(0.dp)
 ) {
     val spacing = LocalSpacing.current
     val state = viewModel.state

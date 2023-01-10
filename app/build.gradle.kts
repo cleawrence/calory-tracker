@@ -17,7 +17,7 @@ android {
         versionCode  = ProjectConfig.versionCode
         versionName  = ProjectConfig.versionName
 
-        testInstrumentationRunner = Testing.testRunnerAndroidJUnit
+        testInstrumentationRunner = Testing.testHiltRunner
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -41,11 +41,19 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = Compose.composeCompilerVersion
     }
+    testOptions {
+        packagingOptions {
+            jniLibs {
+                useLegacyPackaging = true
+            }
+        }
+    }
     packagingOptions {
         resources.excludes.add("META-INF/AL2.0")
         resources.excludes.add("META-INF/LGPL2.1")
         resources.excludes.add("**/attach_hotspot_windows.dll")
         resources.excludes.add("META-INF/licenses/ASM")
+        resources.excludes.add("META-INF/*")
     }
 }
 

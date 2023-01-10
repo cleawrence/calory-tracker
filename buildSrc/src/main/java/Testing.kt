@@ -14,7 +14,7 @@ object Testing {
     private const val truthVersion = "1.1.3"
     const val truth = "com.google.truth:truth:$truthVersion"
 
-    private const val mockkVersion = "1.10.0"
+    private const val mockkVersion = "1.13.2"
     const val mockk = "io.mockk:mockk:$mockkVersion"
     const val mockkAndroid = "io.mockk:mockk-android:$mockkVersion"
 
@@ -36,4 +36,6 @@ object Testing {
 
     private const val linkedinDexmakerVersion = "2.28.3"
     const val  linkedinDexMakerMockito = "com.linkedin.dexmaker:dexmaker-mockito:$linkedinDexmakerVersion"
+
+    const val testHiltRunner = "com.appiwedia.apps.android.calorytracker.HiltTestRunner"
 }
